@@ -19,6 +19,17 @@ def generate_visualizations():
     plt.title('Student Performance: Experiment Scores')
     plt.savefig(f'{output_folder}/scores_bar_chart.png')
 
+    # New Plot: Score Distribution Histogram
+    plt.figure(figsize=(10, 6))
+    df['experiment_score'].hist(bins=15, color='teal', edgecolor='black')
+    plt.title('Distribution of Research Scores')
+    plt.xlabel('Score Value')
+    plt.ylabel('Frequency')
+
+    # Save the new plot
+    plt.savefig('results/score_distribution.png')
+    print("Saved: results/score_distribution.png")
+
     plt.figure(figsize=(10, 6))
     plt.scatter(df['temperature'], df['humidity'], color='darkorange')
     plt.title('Environmental Conditions: Temp vs Humidity')
@@ -27,3 +38,5 @@ def generate_visualizations():
 
 if __name__ == "__main__":
     generate_visualizations()
+
+    
