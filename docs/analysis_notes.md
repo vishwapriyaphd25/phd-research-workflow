@@ -1,3 +1,3 @@
 # Analysis Notes
 ## Missing Value Strategy
-For this project, missing numeric values are handled using mean imputation because it works well for small datasets.
+For this project, missing numeric values are handled using median imputation to reduce the effect of extreme values.
