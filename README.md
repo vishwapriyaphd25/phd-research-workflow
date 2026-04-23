@@ -1,8 +1,19 @@
-# RDP-based Lateral Movement Detection using Machine Learning
+# RDP Log Extraction Benchmark: Keyword vs. Event-ID Filtering
 
-## Structure
-- **docs/**: Research documentation covering the Intrusion Kill-Chain, RDP vulnerabilities, and Windows Event IDs (4624, 4625, 4634).
-- **src/**: Python scripts for data pre-processing and implementation of ML models like LogitBoost, Random Forest, and Gaussian-NB.
-- **data/**: Processed datasets from LANL Unified and Comprehensive logs - *Note: Large files ignored via .gitignore*.
-- **results/**: Model performance metrics (Precision, Recall, F1-score) and robustness analysis against adversarial attacks.
-- **references/**: Literature notes and full citations for the research paper and its referenced state-of-the-art works.
+## Project Structure
+* **docs/**: Contains the research methodology and reproducibility guides.
+* **scripts/**: Python scripts comparing extraction logic (Strategy A vs. Strategy B).
+* **requirements.txt**: List of Python libraries needed for the benchmark.
+* **CITATION.md**: Citation information for this benchmarking study.
+
+## How to Run the Project
+1. Install dependencies: `pip install -r requirements.txt`
+2. Run the comparison script: `python scripts/benchmark_comparison.py`
+3. **Expected Outputs**: Performance logs and a comparison chart showing accuracy/speed.
+
+## Assumptions & Visualization
+* **Assumptions**: We assume logs follow the standard Windows Event Viewer XML/EVTX schema.
+* **Visualization**: A bar chart comparing the false-positive rates of each strategy.
+
+## Future Scope
+* Expanding the benchmark to include multi-threaded extraction methods.
