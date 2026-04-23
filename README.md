@@ -1,19 +1,32 @@
 # RDP Log Extraction Benchmark: Keyword vs. Event-ID Filtering
 
 ## Project Structure
-* **docs/**: Contains the research methodology and reproducibility guides.
-* **scripts/**: Python scripts comparing extraction logic (Strategy A vs. Strategy B).
-* **requirements.txt**: List of Python libraries needed for the benchmark.
-* **CITATION.md**: Citation information for this benchmarking study.
+- **docs/** — Research methodology, reproducibility checklist, and final reflection
+- **scripts/** — Python scripts comparing extraction strategies (Strategy A vs B)
+- **data/** — Sample dataset with missing values (sample_data.csv)
+- **requirements.txt** — Python libraries needed to run the project
+- **CITATION.md** — Citation information for this benchmarking study
 
 ## How to Run the Project
-1. Install dependencies: `pip install -r requirements.txt`
-2. Run the comparison script: `python scripts/benchmark_comparison.py`
-3. **Expected Outputs**: Performance logs and a comparison chart showing accuracy/speed.
+1. Install dependencies:
+   pip install -r requirements.txt
+2. Run data cleaning:
+   python scripts/data_cleaning.py
+3. Run the benchmark comparison:
+   python scripts/benchmark_comparison.py
+4. Generate visualisations:
+   python scripts/visualisation.py
 
-## Assumptions & Visualization
-* **Assumptions**: We assume logs follow the standard Windows Event Viewer XML/EVTX schema.
-* **Visualization**: A bar chart comparing the false-positive rates of each strategy.
+## Expected Outputs
+- benchmark_results.csv — Performance comparison of both strategies
+- comparison_plot.png — Bar chart of false-positive rates
+- score_distribution_histogram.png — Score distribution across strategies
+
+## Assumptions
+- Logs follow the standard Windows Event Viewer XML/EVTX schema
+- Missing values were handled using mean and median imputation strategies
 
 ## Future Scope
-* Expanding the benchmark to include multi-threaded extraction methods.
+- Expand the benchmark to include multi-threaded extraction methods
+- Test against additional log formats beyond EVTX
+- Integrate automated anomaly detection pipelines

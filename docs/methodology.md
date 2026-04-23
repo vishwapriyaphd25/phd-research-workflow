@@ -1,15 +1,25 @@
 # Research Methodology
 
 ## Dataset Purpose
-This project benchmarks two filtering strategies against the LANL Unified Network Logs to identify the most efficient method for RDP lateral movement detection.
+This project benchmarks two RDP log filtering strategies (Keyword-based vs Event-ID-based)
+against the LANL Unified Network Logs to identify the most efficient method
+for detecting lateral movement.
 
-## Data Cleaning Strategy
-* **Handling Missing Values**: Rows with null timestamps or missing Event IDs were excluded.
-* **Strategy Choice**: This ensures the benchmark measures the accuracy of the logic rather than the quality of the data.
+## How Missing Values Were Handled
+Missing values in the dataset were handled using a combination of:
+- Mean imputation for small datasets with normally distributed values
+- Median imputation for skewed distributions to reduce outlier influence
 
-## Visualizations Generated
-* Execution time comparison (Strategy A vs. B).
-* Precision-Recall curve for login event detection.
+## Why That Strategy Was Chosen
+Mean imputation preserves the overall average when data is symmetric.
+Median imputation is more robust when outliers are present.
+A combined strategy was used after resolving a conflict between both approaches.
+
+## Visualisations Generated
+- Score distribution histogram comparing both filtering strategies
+- Bar chart showing false-positive rates of Keyword vs Event-ID filtering
 
 ## Limitations
-* The current benchmark is limited to RDP-specific event codes (4624, 1149).
+- The benchmark is limited to Windows Event Viewer XML/EVTX log schema
+- Results may vary with real-world noisy or incomplete log data
+- Multi-threaded extraction methods have not yet been tested
